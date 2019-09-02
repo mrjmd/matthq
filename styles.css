@@ -1,35 +1,46 @@
+html {
+  height: 100%;
+}
 body {
   font-family: "Source Sans Pro", Helvetica, sans-serif;
   margin: 0;
+  display: flex;
+  width: 100%;
+  height: 100%
 }
 #header {
   text-align: right;
-  padding: 8em 4em;
-  background-image: url(assets/bg.jpg);
+  padding: 4em 4em;
+  background-image: url(assets/overlay.png), url(assets/bg.jpg);
   background-repeat: repeat, no-repeat;
   background-attachment: scroll, fixed;
   background-size: cover;
-  height: 100%;
-  position: fixed;
   color: rgba(255, 255, 255, 0.5);
+  flex: 35%;
 }
 #header p {
+  opacity: 1;
   font-size: 1.75em;
   line-height: 2em;
+}
+#header p b {
+  color: white;
+  font-weight: normal;
 }
 #header a {
   text-decoration: none;
   margin: 0 1em;
 }
 #header .icon {
-  opacity: 0.25;
+  opacity: 0.75;
 }
 img.avatar{
   border-radius: 50%;
+  opacity: 1;
 }
 #main-content {
-  padding: 8em 6em;
-  margin-left: 35%;
+  padding: 4em 4em;
   height: 100%;
-  width: calc(100% - 35%);
+  flex: 65%;
+  color: #787878;
 }
