@@ -44,3 +44,12 @@ img.avatar{
   flex: 65%;
   color: #787878;
 }
+p.sections {
+  padding: 4em 0;
+}
+p.sections a {
+  border: 2px solid #e7e7e7;
+  padding: 15px 32px;
+  text-decoration: none;
+  color: #787878;
+}
