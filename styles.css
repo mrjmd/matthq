@@ -19,7 +19,7 @@ body {
   color: rgba(255, 255, 255, 0.5);
   width: 100%;
 }
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1200px) {
   #header {
     flex: 1;
   }
@@ -52,13 +52,16 @@ img.avatar{
   height: 100%;
   color: #787878;
 }
-p.sections a {
+div.sections p {
+  float: right;
+}
+div.sections a {
   border: 2px solid #e7e7e7;
   padding: 15px 32px;
   text-decoration: none;
   color: #e7e7e7;
 }
-p.sections a:hover {
+div.sections a:hover {
   color: rgba(255, 255, 255, 0.5);
   border: 2px solid rgba(255, 255, 255, 0.5);
 }
