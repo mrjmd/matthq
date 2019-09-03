@@ -47,11 +47,6 @@ img.avatar{
   border-radius: 50%;
   opacity: 1;
 }
-#main-content {
-  padding: 4em 4em;
-  height: 100%;
-  color: #787878;
-}
 div.sections p {
   float: right;
 }
@@ -64,4 +59,16 @@ div.sections a {
 div.sections a:hover {
   color: rgba(255, 255, 255, 0.5);
   border: 2px solid rgba(255, 255, 255, 0.5);
+}
+#main-content {
+  padding: 4em 4em;
+  height: 100%;
+  color: #787878;
+}
+h2.note-title {
+  padding: 3em 0 0 0;
+}
+.note-date {
+  font-style: italic;
+  padding: 0 0 6px 0;
 }
