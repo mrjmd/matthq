@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Web Component Time | MattHQ</title>
+        <link rel="stylesheet" href="/styles.css" type="text/css" />
+        <script src="/js/header.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <matt-hq-header></matt-hq-header>
+        <div id="main-content">
+            <h1>Web Component Time</h1>
+            <div class="note-date">September 10, 2019</div>
+            <p>I'm planning on attending another Homebrew Website Club meetup tomorrow, and was thinking a bit on what next steps for this site might be. One of the immediate classic website building problems I encountered as soon as I decided to write this site statically, and from scratch, was what to do about not repeating myself. I want my primary content to be CURL-able and not reliant on JavaScript. But also as I start to create more content I certainly don't want to have to edit the same header code in multiple places every time I make an update (which, given my awful capacity for making things look decent, will be often).</p>
+            <p>Twenty years ago, I would have reached for a php include in such a scenario. But then I need a server and to pay for hosting and such. I'm not ready for that much committment, or maybe I just want to play with new approaches. Regardless, I instead created a simple custom `matt-hq-header` element that I'm passing into my pages instead.</p>
+            <p>Yes, it does mean that the optimal experience on my site now requires JavaScript. But I also got to write a commit that removed a bunch of repititious code, albiet markup, which is always nice. And I've made continuing to expand the content on my site slightly easier.</p>
+        </div>
+    </body>
+</html>
