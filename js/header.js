@@ -16,6 +16,10 @@ template.innerHTML = `
         flex: 1;
     }
   }
+  img.avatar{
+    border-radius: 50%;
+    opacity: 1;
+  }
   p {
     opacity: 1;
     font-size: 1.75em;
