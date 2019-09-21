@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>DAT Support Yo | MattHQ</title>
+        <link rel="stylesheet" href="/styles.css" type="text/css" />
+        <script src="/js/header.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <matt-hq-header></matt-hq-header>
+        <div id="main-content">
+            <h1>DAT Support Yo</h1>
+            <div class="note-date">September 21, 2019</div>
+            <p>I'm hanging out at <a href="https://ournetworks.ca" target="_BLANK">Our Networks</a> conference in Toronto, and am currently in a workshop on building sites on <a href="https://dat.foundation/" target="_BLANK">DAT</a> protocol in <a href="https://beakerbrowser.com" target="_BLANK">Beaker browser</a>. I've built several sites with Beaker over the last few years so I'm relatively familiar with the process, but I hadn't yet added support to MattHQ, so it's a perfect oportunity to do so!</p>
+            <p>All this really required was adding a dat.json file and a .datignore file to my existing project, and hosting the entire thing via Beaker browser. Since I already had the project locally, I simply created a new project in Beaker, went to the project settings and pointed it at my existing local site directory. Boom, that gave me a DAT address by which anyone could directly reach my site without the involvement of a central server! That address is: <a href="dat://a9ea9468776133172549242f742a729d624b24acfdd265dcf690c13930b69f22/" target="_BLANK">dat://a9ea9468776133172549242f742a729d624b24acfdd265dcf690c13930b69f22/</a> (Yikes!). That big ol' scary looking string of gibberish is actually a hash that allows my site to be content addressable instead of requiring a regular domain name. This is the magic sauce that allows it to be verifiably served by anyone, while ensuring it is the exact content being requested. Neato.</p>
+            <p>Of course, there are a few concerns that remain. The first is that because most browsers do not yet support decentralized protocols, you will currently need to have Beaker browser yourself to visit that address. You should download it. It's worth it. The second problem is that unless many peers (like you!) visit and thereby re-host the site, as soon as I close my laptop it will disappear forever. Since some permanence is desirable for this site, I'll use the DAT rehosting service <a href="https://hashbase.io" target="_BLANK">Hashbase</a> to provide that. By uploading my DAT there, it can now be accessed via either <a href="dat://matthq.hashbase.io/" target="_BLANK">dat://matthq.hashbase.io/</a> (if you have Beaker), or if you don't, <a href="https://matthq.hashbase.io/" target="_BLANK">https://matthq.hashbase.io/</a></p>
+        </div>
+    </body>
+</html>
