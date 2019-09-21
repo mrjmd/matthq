@@ -62,7 +62,7 @@ template.innerHTML = `
             <img class="icon" height="32" width="32" src="https://unpkg.com/simple-icons@latest/icons/gmail.svg" />
         </a>
         </p>
-    <p><a href="https://www.matthq.com"><img class="avatar" src="/assets/matt.jpg" alt="Photo of Matt" /></a></p>
+    <p><a href="/"><img class="avatar" src="/assets/matt.jpg" alt="Photo of Matt" /></a></p>
     <p><b>Matt Davis</b> here, I explore <br />
     technology and possibility.
     </p>
