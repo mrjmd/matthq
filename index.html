@@ -32,5 +32,17 @@
                 <div class="note-read-more"><a href="./notes/first.html">Read more</a></div>
             </article>
         </div>
+        <script>
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('/js/service-worker.js');
+        }
+
+        document.querySelector('#show').addEventListener('click', () => {
+        const iconUrl = document.querySelector('select').selectedOptions[0].value;
+        let imgElement = document.createElement('img');
+        imgElement.src = iconUrl;
+        document.querySelector('#container').appendChild(imgElement);
+        });
+        </script>
     </body>
 </html>
