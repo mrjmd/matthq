@@ -14,22 +14,28 @@
 // Names of the two caches used in this version of the service worker.
 // Change to v2, etc. when you update any of the local resources, which will
 // in turn trigger the install event again.
-const PRECACHE = 'precache-v1';
-const RUNTIME = 'runtime';
+const PRECACHE = 'precache-v2';
+const RUNTIME = 'mhqsw-v2';
 
 // A list of local resources we always want to be cached.
 const PRECACHE_URLS = [
-  '../index.html',
-  '../', // Alias for index.html
-  '../styles.css',
-  'header.js',
-  '../assets/bg.jpg',
-  '../assets/overlay.png',
-  '../assets/matt.jpg'
+  '/', // Alias for index.html
+  '/index.html',
+  '/about.html',
+  'photos.html',
+  '/notes/comoponents.html',
+  '/notes/dat.html',
+  '/notes/first.html',
+  '/styles.css',
+  '/js/header.js',
+  '/assets/bg.jpg',
+  '/assets/overlay.png',
+  '/assets/matt.jpg'
 ];
 
 // The install handler takes care of precaching the resources we always need.
 self.addEventListener('install', event => {
+  console.log('[Service Worker] Install');
   event.waitUntil(
     caches.open(PRECACHE)
       .then(cache => cache.addAll(PRECACHE_URLS))
@@ -55,17 +61,12 @@ self.addEventListener('activate', event => {
 // If no response is found, it populates the runtime cache with the response
 // from the network before returning it to the page.
 self.addEventListener('fetch', event => {
-  console.log(event.request.url);
+  console.log('[Service Worker] Fetched resource '+event.request.url);
   // Skip cross-origin requests, like those for Google Analytics.
   if (event.request.url.startsWith(self.location.origin)) {
     event.respondWith(
       caches.match(event.request).then(cachedResponse => {
-        console.log('caches match');
-        if (cachedResponse) {
-          return cachedResponse;
-        }
-
-        return caches.open(RUNTIME).then(cache => {
+        return cachedResponse || caches.open(RUNTIME).then(cache => {
           return fetch(event.request).then(response => {
             // Put a copy of the response in the runtime cache.
             return cache.put(event.request, response.clone()).then(() => {
