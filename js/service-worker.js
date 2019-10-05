@@ -22,8 +22,8 @@ const PRECACHE_URLS = [
   '/', // Alias for index.html
   '/index.html',
   '/about.html',
-  'photos.html',
-  '/notes/comoponents.html',
+  '/photos.html',
+  '/notes/components.html',
   '/notes/dat.html',
   '/notes/first.html',
   '/styles.css',
