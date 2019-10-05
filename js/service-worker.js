@@ -62,19 +62,16 @@ self.addEventListener('activate', event => {
 // from the network before returning it to the page.
 self.addEventListener('fetch', event => {
   console.log('[Service Worker] Fetched resource '+event.request.url);
-  // Skip cross-origin requests, like those for Google Analytics.
-  if (event.request.url.startsWith(self.location.origin)) {
-    event.respondWith(
-      caches.match(event.request).then(cachedResponse => {
-        return cachedResponse || caches.open(RUNTIME).then(cache => {
-          return fetch(event.request).then(response => {
-            // Put a copy of the response in the runtime cache.
-            return cache.put(event.request, response.clone()).then(() => {
-              return response;
-            });
+  event.respondWith(
+    caches.match(event.request).then(cachedResponse => {
+      return cachedResponse || caches.open(RUNTIME).then(cache => {
+        return fetch(event.request).then(response => {
+          // Put a copy of the response in the runtime cache.
+          return cache.put(event.request, response.clone()).then(() => {
+            return response;
           });
         });
-      })
-    );
-  }
+      });
+    })
+  );
 });
