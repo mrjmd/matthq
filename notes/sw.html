@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Service Worker | MattHQ</title>
+        <link rel="stylesheet" href="/styles.css" type="text/css" />
+        <script src="/js/header.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <matt-hq-header></matt-hq-header>
+        <div id="main-content">
+            <h1>Service worker</h1>
+            <div class="note-date">October 5, 2019</div>
+            <p>I've got offline support working now so that once you've visited this site you can continue to browser and load the site even if you're offline. I thought about using a library like <a href="https://developers.google.com/web/tools/workbox" target="_BLANK">workbox</a> for this purpose but wouldn't to stick to simplicity and writing from scratch for now. It's still mostly <a href="https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Offline_Service_workers" target="_BLANK">copypasta</a> code but is quite simple and working well.</p>
+            <p>Service workers degrade gracefully so there is no adverse impact on older browsers. The biggest drawback with the current approach is it adds yet another manual step for the time being to each new post I create (assuming I'd like it cached). I now have to create and modify a new html file, add a teaser to the index.html file, and add an entry to my service worker's cache list variable each time. Mayba a little build system to handle some of this should be next...</p>
+        </div>
+    </body>
+</html>

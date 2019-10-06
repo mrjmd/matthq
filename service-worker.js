@@ -1,21 +1,8 @@
-/*
- Copyright 2016 Google Inc. All Rights Reserved.
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-     http://www.apache.org/licenses/LICENSE-2.0
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
-*/
-
 // Names of the two caches used in this version of the service worker.
 // Change to v2, etc. when you update any of the local resources, which will
 // in turn trigger the install event again.
-const PRECACHE = 'precache-v4';
-const RUNTIME = 'mhqsw-v4';
+const PRECACHE = 'precache-v5';
+const RUNTIME = 'mhqsw-v5';
 
 // A list of local resources we always want to be cached.
 const PRECACHE_URLS = [
@@ -26,6 +13,7 @@ const PRECACHE_URLS = [
   '/notes/components.html',
   '/notes/dat.html',
   '/notes/first.html',
+  '/notes/sw.html',
   '/styles.css',
   '/js/header.js',
   '/assets/bg.jpg',
@@ -35,7 +23,6 @@ const PRECACHE_URLS = [
 
 // The install handler takes care of precaching the resources we always need.
 self.addEventListener('install', event => {
-  console.log('[Service Worker] Install');
   event.waitUntil(
     caches.open(PRECACHE)
       .then(cache => cache.addAll(PRECACHE_URLS))
@@ -44,7 +31,6 @@ self.addEventListener('install', event => {
 
 // The activate handler takes care of cleaning up old caches.
 self.addEventListener('activate', event => {
-  console.log('[Service Worker] Activate');
   const currentCaches = [PRECACHE, RUNTIME];
   event.waitUntil(
     caches.keys().then(cacheNames => {
@@ -61,7 +47,6 @@ self.addEventListener('activate', event => {
 // If no response is found, it populates the runtime cache with the response
 // from the network before returning it to the page.
 self.addEventListener('fetch', event => {
-  console.log('[Service Worker] Fetched resource '+event.request.url);
   event.respondWith(
     caches.match(event.request).then(cachedResponse => {
       return cachedResponse || caches.open(RUNTIME).then(cache => {
